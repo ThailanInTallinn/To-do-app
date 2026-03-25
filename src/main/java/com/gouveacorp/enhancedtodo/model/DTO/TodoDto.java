@@ -1,4 +1,4 @@
-package com.gouveacorp.enhancedtodo.model;
+package com.gouveacorp.enhancedtodo.model.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
