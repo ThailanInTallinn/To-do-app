@@ -1,9 +1,7 @@
 package com.gouveacorp.enhancedtodo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.gouveacorp.enhancedtodo.model.DTO.TodoDto;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Data
+@Table(name = "Todo")
 public class Todo {
 
     @Id
@@ -24,8 +23,18 @@ public class Todo {
 
     private Boolean completed;
 
+    @Column(name="createdat")
     private LocalDateTime createdAt;
 
+    @Column(name="updatedat")
     private LocalDateTime updatedAt;
+
+    private String createdBy;
+
+    public Todo dtoToEntity(TodoDto dto){
+        this.task = dto.getTask();
+        this.completed = dto.getCompleted();
+        return this;
+    }
 
 }
