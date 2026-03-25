@@ -36,6 +36,9 @@ public class TodoService {
         }
         return listTodos;*/
 
-        return todoRepository.findAll().stream().toList();
+        return todoRepository.findAll()
+                .stream()
+                .map(td -> td.entityToResponseDto(td))
+                .toList();
     }
 }
