@@ -1,6 +1,7 @@
 package com.gouveacorp.enhancedtodo.model;
 
 import com.gouveacorp.enhancedtodo.model.DTO.TodoDto;
+import com.gouveacorp.enhancedtodo.model.DTO.TodoDtoResponse;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,12 +30,15 @@ public class Todo {
     @Column(name="updatedat")
     private LocalDateTime updatedAt;
 
-    private String createdBy;
-
     public Todo dtoToEntity(TodoDto dto){
         this.task = dto.getTask();
         this.completed = dto.getCompleted();
         return this;
+    }
+
+    public TodoDtoResponse entityToResponseDto(Todo todo){
+        return new TodoDtoResponse(todo.getId(), todo.getTask(), todo.getCompleted());
+
     }
 
 }
