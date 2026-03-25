@@ -30,12 +30,7 @@ public class TodoService {
     }
 
     public List<TodoDtoResponse> getTodos(){
-        /*List<Todo> listTodos = null;
-        for(Todo todo : todoRepository.findAll()){
-            listTodos.add(todo);
-        }
-        return listTodos;*/
-
+        
         return todoRepository.findAll()
                 .stream()
                 .map(td -> td.entityToResponseDto(td))
