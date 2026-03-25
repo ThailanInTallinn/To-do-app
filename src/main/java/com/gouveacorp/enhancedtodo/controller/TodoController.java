@@ -1,6 +1,7 @@
 package com.gouveacorp.enhancedtodo.controller;
 
 
+import com.gouveacorp.enhancedtodo.model.DTO.TodoDtoResponse;
 import com.gouveacorp.enhancedtodo.model.Todo;
 import com.gouveacorp.enhancedtodo.model.DTO.TodoDto;
 import com.gouveacorp.enhancedtodo.service.TodoService;
@@ -22,7 +23,7 @@ public class TodoController {
     }
 
     @GetMapping
-    public List<Todo> getAllTodos(){
+    public List<TodoDtoResponse> getAllTodos(){
         return todoService.getTodos();
     }
 }
