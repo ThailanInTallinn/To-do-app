@@ -1,7 +1,7 @@
 package com.gouveacorp.enhancedtodo.model;
 
 import com.gouveacorp.enhancedtodo.model.DTO.TodoDto;
-import com.gouveacorp.enhancedtodo.model.DTO.TodoDtoResponse;
+import com.gouveacorp.enhancedtodo.model.DTO.TodoDtoRequestResponse;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,8 +36,8 @@ public class Todo {
         return this;
     }
 
-    public TodoDtoResponse entityToResponseDto(Todo todo){
-        return new TodoDtoResponse(todo.getId(), todo.getTask(), todo.getCompleted());
+    public TodoDtoRequestResponse entityToResponseDto(Todo todo){
+        return new TodoDtoRequestResponse(todo.getId(), todo.getTask(), todo.getCompleted());
 
     }
 
