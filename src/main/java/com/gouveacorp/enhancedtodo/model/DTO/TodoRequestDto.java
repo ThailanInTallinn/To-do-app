@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TodoDtoRequestResponse {
+public class TodoRequestDto {
     private Long id;
 
     private String task;
