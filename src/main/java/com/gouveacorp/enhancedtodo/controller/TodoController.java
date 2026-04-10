@@ -1,7 +1,8 @@
 package com.gouveacorp.enhancedtodo.controller;
 
 
-import com.gouveacorp.enhancedtodo.model.DTO.TodoDtoRequestResponse;
+import com.gouveacorp.enhancedtodo.model.DTO.TodoRequestDto;
+import com.gouveacorp.enhancedtodo.model.DTO.TodoResponseDto;
 import com.gouveacorp.enhancedtodo.model.Todo;
 import com.gouveacorp.enhancedtodo.model.DTO.TodoDto;
 import com.gouveacorp.enhancedtodo.service.TodoService;
@@ -23,12 +24,12 @@ public class TodoController {
     }
 
     @GetMapping
-    public List<TodoDtoRequestResponse> getAllTodos(){
+    public List<TodoResponseDto> getAllTodos(){
         return todoService.getTodos();
     }
 
     @PutMapping("/{id}")
-    public void updateTodo(@PathVariable Long id, @RequestBody TodoDtoRequestResponse dto) {
-        todoService.editTodo(id, dto);
+    public TodoResponseDto updateTodo(@PathVariable Long id, @RequestBody TodoRequestDto dto) {
+        return todoService.editTodo(id, dto);
     }
 }
